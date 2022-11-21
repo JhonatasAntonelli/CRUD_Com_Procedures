@@ -1,0 +1,64 @@
+﻿@model IEnumerable<CRUD_Com_Procedures.Models.Curso>
+
+@{
+    ViewData["Title"] = "Index";
+}
+@if (TempData["MessagemSucessoCadastro"] != null)
+{
+    <div class="alert alert-warning alert-info" role="alert">
+        <strong>@TempData["MessagemSucessoCadastro"]</strong>        
+    </div>    
+}
+@if (TempData["MessagemSucessoEdicao"] != null)
+{
+    <div class="alert alert-warning alert-info" role="alert">
+         <strong>@TempData["MessagemSucessoEdicao"]</strong>        
+    </div>    
+}
+@if (TempData["MessagemSucessoDelCurso"] != null)
+{
+    <div class="alert alert-warning alert-info" role="alert">
+         <strong>@TempData["MessagemSucessoDelCurso"]</strong>        
+    </div>    
+}
+<h1>Lista de cursos</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Adicionar um novo curso</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeCurso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Horas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeCurso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Horas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-success" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Details" class="btn btn-warning" asp-route-id="@item.Id">Detalhes</a> |
+                <a asp-action="Delete" class="btn bg-danger" asp-route-id="@item.Id">Remover</a>                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

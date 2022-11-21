@@ -1,0 +1,85 @@
+﻿@model IEnumerable<CRUD_Com_Procedures.Models.Aluno>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if (TempData["MessagemSucessoAdd"] != null)
+{
+    <div class="alert alert-warning alert-info" role="alert">
+        <strong>@TempData["MessagemSucessoAdd"]</strong>        
+    </div>    
+}
+@if (TempData["MessagemSucessoEdit"] != null)
+{   
+    <div class="alert alert-warning alert-info" role="alert">
+        <strong>@TempData["MessagemSucessoEdit"]</strong>        
+    </div>       
+}
+@if (TempData["MessagemSucessoDel"] != null)
+{   
+    <div class="alert alert-warning alert-info" role="alert">
+        <strong>@TempData["MessagemSucessoDel"]</strong>        
+    </div>       
+}
+
+<h1>Alunos Cadastrados</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary" >Adicionar um novo aluno</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cpf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataNascimento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Senha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsAdm)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+             <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cpf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataNascimento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Senha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsAdm)
+            </td>
+            <td>
+                    <a asp-action="Edit" class="btn btn-success" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Details" class="btn btn-warning" asp-route-id="@item.Id">Detalhes</a> |
+                    <a asp-action="Delete" class="btn bg-danger" asp-route-id="@item.Id">Remover</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,38 @@
+﻿@model CRUD_Com_Procedures.Models.Curso
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Deletar Curso</h1>
+
+<h3>Você realmente deseja remover esse curso?</h3>
+<div>    
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NomeCurso)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NomeCurso)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Horas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Horas)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Remover Curso" class="btn btn-danger">
+        <a asp-action="Index" class=" btn btn-secondary">Retornar Para a Lista de Cursos</a>
+    </form>
+</div>

@@ -1,0 +1,33 @@
+﻿@model CRUD_Com_Procedures.Models.Matricula
+
+@{
+    ViewData["Title"] = "Matricular";
+    Layout = "_LayoutDeslogado";
+}
+
+<h4>Realizar Matricula em um novo Curso</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Matricular">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdCurso" class="control-label"></label>
+                <select input asp-for="IdCurso" class="form-select" asp-items="Model.ContatosSelectListCurso"></select>   
+                <span asp-validation-for="IdCurso" class="text-danger"></span>
+            </div>
+            <br />            
+            <div class="form-group">
+                <input type="submit" value="Matricular" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<div>
+    <a asp-action="PaginaAluno" class="btn btn-secondary" >Retornar para pagina do aluno</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

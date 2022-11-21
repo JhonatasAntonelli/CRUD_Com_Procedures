@@ -1,0 +1,66 @@
+﻿@model CRUD_Com_Procedures.Models.Aluno
+
+@{
+    ViewData["Title"] = "Create";
+}
+@if (TempData["MessagemErrorCPF"] != null)
+{
+    <div class="alert alert-warning alert-info" role="alert">
+        <strong>@TempData["MessagemErrorCPF"]</strong>        
+    </div>    
+}
+
+
+<h1>Adicionar Novo Aluno</h1>
+
+<h4>Dados do Aluno</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Cpf" class="control-label"></label>
+                <input asp-for="Cpf" class="form-control" />
+                <span asp-validation-for="Cpf" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="DataNascimento" class="control-label"></label>
+                <input asp-for="DataNascimento" class="form-control" />
+                <span asp-validation-for="DataNascimento" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Senha" class="control-label"></label>
+                <input asp-for="Senha" class="form-control" />
+                <span asp-validation-for="Senha" class="text-danger"></span>
+            </div> 
+            <br>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsAdm" /> @Html.DisplayNameFor(model => model.IsAdm)
+                </label>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Adicionar Aluno" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<div>
+    <a asp-action="Index" class="btn btn-success">Retornar Para Lista de Alunos</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

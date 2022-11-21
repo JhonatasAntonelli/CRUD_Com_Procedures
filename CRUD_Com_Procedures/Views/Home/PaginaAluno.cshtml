@@ -1,0 +1,42 @@
+﻿@model Login
+@{
+    ViewData["Title"] = "PaginaAluno";
+    Layout = "_LayoutDeslogado";
+}
+@if (TempData["MessagemSucessoEditALuno"] != null)
+{   
+    <div class="alert alert-warning alert-info" role="alert">
+        <strong>@TempData["MessagemSucessoEditALuno"]</strong>        
+    </div>       
+}
+
+<div class="text-xl-center">
+    <h1>Olá, Aluno!!!</h1>
+    <br />
+    <h1>O que deseja fazer?</h1>
+    <br />
+    <br />
+    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+        <ul class="navbar-nav flex-grow-1">
+            <li class="nav-item">
+                <a class="btn btn-primary" asp-area="" asp-controller="Home" asp-action="Edit">Editar Cadastro</a>
+            </li>
+            <br />            
+            <li class="nav-item">
+                <a class="btn btn-primary" asp-area="" asp-controller="Home" asp-action="Details">Ver Cursos em andamento</a>
+            </li>
+            <br />
+            <li class="nav-item">
+                <a class="btn btn-primary" asp-area="" asp-controller="Home" asp-action="Matricular">Realizar Matricula em um curso</a>
+            </li>           
+            <br />
+            <li class="nav-item">
+                <a class="btn btn-primary" asp-area="" asp-controller="Home" asp-action="Index">Retornar Para Pagina de Login</a>
+            </li>
+             <br />
+            <li class="nav-item">
+                <a class="btn btn-primary" asp-area="" asp-controller="Home" asp-action="DetailsAluno">Detalhes do Cadastro</a>
+            </li>
+        </ul>
+    </div>
+</div>

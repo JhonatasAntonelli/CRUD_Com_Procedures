@@ -1,0 +1,35 @@
+﻿@model CRUD_Com_Procedures.Models.Curso
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalhes do Curso</h1>
+
+<div>    
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NomeCurso)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NomeCurso)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Horas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Horas)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" class=" btn btn-primary" asp-route-id="@Model?.Id">Editar</a>
+    <a asp-action="Index" class=" btn btn-secondary">Retornar PAra a lista de Cursos</a>
+</div>
